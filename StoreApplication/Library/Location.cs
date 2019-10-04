@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StoreApplication
+namespace Library
 {
     class Location
     {
@@ -12,7 +12,7 @@ namespace StoreApplication
 
         public int fullfillInventory(int order)
         {
-            if(order < inventoryCount)
+            if (order < inventoryCount)
             {
                 return 1; //return one to indicate we have enough stock
             }

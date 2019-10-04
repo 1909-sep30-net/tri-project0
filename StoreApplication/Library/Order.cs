@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StoreApplication
+namespace Library
 {
     class Order
     {
