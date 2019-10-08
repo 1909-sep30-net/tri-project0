@@ -8,14 +8,19 @@ namespace Library
     {
 
         //add an address right or something
+        List<Product> OrderIn = new List<Product>();
+        public string Address { get; set; }
 
         Customer customer { get; set; }
 
-        public int orderTime { get; set; }
+        public int OrderTime { get; set; }
 
-        public int orderType { get; set; }
+        public int OrderType { get; set; }
 
-        public bool rejectOrder { get; set; }
+        public bool RejectOrderHigh()
+        {
+            if
+        }
 
         //additional business rules
 

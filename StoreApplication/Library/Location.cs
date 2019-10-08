@@ -7,25 +7,40 @@ namespace Library
     //Don't camelCase for method, Naming convention for C#
     class Location
     {
-        //Should probably use a list
-        public int inventoryCount = 200;
+        //Current inventory
+        List<Product> MyInventory = new List<Product>();
 
-        public int InventoryDecrease { get; set; }
-
-        public int FullfillInventory(int order)
+        /// <summary>
+        /// Adds more products to the inventory
+        /// </summary>
+        /// <param name="stock"></param>
+        public void Add(Product stock)
         {
-            if (order < inventoryCount)
+            MyInventory.Add(stock);
+        }
+
+        /// <summary>
+        /// Subtract from List when order is placed
+        /// </summary>
+        /// <param name="stock"></param>
+        public void Sub(Product stock)
+        {
+            MyInventory.Remove(stock);
+        }
+
+        /// <summary>
+        /// Rejects order if inventory is less than 10
+        /// </summary>
+        /// <returns></returns>
+        public bool RejectOrderLocate()
+        {
+            if (MyInventory.Count < 10)
             {
-                return 1; //return one to indicate we have enough stock
+                return false;
             }
-            return -1; //return negative one to say we don't have enough
+
+            return true;
         }
 
-
-            //Test the list way plus the other way too
-        public void MyInventory(List<Product> stock)
-        {
-
-        }
     }
 }
