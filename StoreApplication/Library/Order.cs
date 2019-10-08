@@ -6,7 +6,8 @@ namespace Library
 {
     class Order
     {
-        public string storeLocation { get; set; }
+
+        //add an address right or something
 
         Customer customer { get; set; }
 
