@@ -10,9 +10,9 @@ namespace Library
         //Should probably use a list
         public int inventoryCount = 200;
 
-        public int inventoryDecrease { get; set; }
+        public int InventoryDecrease { get; set; }
 
-        public int fullfillInventory(int order)
+        public int FullfillInventory(int order)
         {
             if (order < inventoryCount)
             {
@@ -21,18 +21,9 @@ namespace Library
             return -1; //return negative one to say we don't have enough
         }
 
-        
-         //* select customer
-         //* do this
-         //* from customer address
-         //* where address within the delivery 
-         //* 
-         //* 
-         //* 
-         //* 
 
             //Test the list way plus the other way too
-        public void otherInventory(List<Product> stock)
+        public void MyInventory(List<Product> stock)
         {
 
         }
