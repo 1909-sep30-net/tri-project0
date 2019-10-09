@@ -4,42 +4,34 @@ using System.Text;
 
 namespace Library
 {
-    //Don't camelCase for method, Naming convention for C#
-    class Location
+    //Store location that has its own inventory and methods for adding and taking
+    //away products
+    public class Location
     {
-        //Current inventory
-        List<Product> MyInventory = new List<Product>();
+        //store inventory
+        List<Product> InventoryLocation = new List<Product>();
 
-        /// <summary>
-        /// Adds more products to the inventory
-        /// </summary>
-        /// <param name="stock"></param>
-        public void Add(Product stock)
+        //adds to inventory
+        public void AddLocation(Product stock)
         {
-            MyInventory.Add(stock);
+            InventoryLocation.Add(stock);
         }
 
-        /// <summary>
-        /// Subtract from List when order is placed
-        /// </summary>
-        /// <param name="stock"></param>
-        public void Sub(Product stock)
+        //subtracts from inventory
+        public void SubLocation(Product stock)
         {
-            MyInventory.Remove(stock);
+            InventoryLocation.Remove(stock);
         }
 
-        /// <summary>
-        /// Rejects order if inventory is less than 10
-        /// </summary>
-        /// <returns></returns>
-        public bool RejectOrderLocate()
+        //rejects order if inventory less than 20
+        public bool RejectLocation()
         {
-            if (MyInventory.Count < 10)
+            if(InventoryLocation.Count < 20)
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
     }

@@ -15,37 +15,73 @@ namespace Library
         private string lname;
         private string StoreAddress;
         private string CustAddress;
+        private int PhoneNum;
 
-        
           public Customer() 
           { 
           }
         
-          public Customer(string firstName, string lastName, string address ){          
+          public Customer(string firstName, string lastName, string address, int phone )
+          {          
                 fname = firstName;
                 lname = lastName;
                 CustAddress = address;
-            }
+                PhoneNum = phone;
+          }
 
         public string FirstName
         {
-            get{return fname;}
+            get{ return fname; }
 
-            set{fname = value;}
+            set{ fname = value; }
         }
 
         public string LastName
         {
-            get{return lname;}
+            get{ return lname; }
             
-            set{lname = value;}
+            set{ lname = value; }
         }
 
         public string Address
         {
-            get { return CustAddress;}
+            get { return CustAddress; }
             set { CustAddress = value; }
         }
 
+        public int Phone
+        {
+            get { return PhoneNum; }
+            set { PhoneNum = value; }
+        }
+        
+        public void ValidationName()
+        {
+            if(fname.Length < 1)
+            {
+                throw new Exception("First name is not long enough!");
+            }
+            else if (lname.Length < 1)
+            {
+                throw new Exception("Last name is not long enough!");
+            }
+        }
+        public void DisplayCust()
+        {
+            Console.WriteLine("Name: " + fname + " " + lname + ", Address: " + CustAddress + ", Phone: " + PhoneNum);
+        }
+
+        //public void AddCust()
+        //{
+        //    CustomerNew.Add(new Customer());
+        //}
+
+        //public List<Customer> SearchCust()
+        //{
+        //    foreach(var cust in CustomerNew)
+        //    {
+        //        if(cust.Equals())
+        //    }
+        //}
     }
 }
