@@ -26,7 +26,18 @@ namespace Library
 
             List<Product> MyOrder = new List<Product>();
 
-            //MyOrder.
+            Product Prod1 = new Product();
+            Product Prod2 = new Product();
+
+            Prod1.Model = "Sea Master";
+            Prod2.Model = "Snowflake";
+
+            
+            Product.AddProd(Prod1);
+            Product.AddProd(Prod2);
+            
+            Prod1.DisplayProd();
+            //Prod2.DisplayProd();
 
         }
     }

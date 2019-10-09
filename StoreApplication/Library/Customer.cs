@@ -17,10 +17,12 @@ namespace Library
         private string CustAddress;
         private int PhoneNum;
 
+        List<Customer> AmountCust = new List<Customer>();
           public Customer() 
           { 
           }
         
+        //Might change this to a method to make adding customers to List easier
           public Customer(string firstName, string lastName, string address, int phone )
           {          
                 fname = firstName;
@@ -29,6 +31,7 @@ namespace Library
                 PhoneNum = phone;
           }
 
+        //made this static
         public string FirstName
         {
             get{ return fname; }
@@ -71,17 +74,25 @@ namespace Library
             Console.WriteLine("Name: " + fname + " " + lname + ", Address: " + CustAddress + ", Phone: " + PhoneNum);
         }
 
-        //public void AddCust()
-        //{
-        //    CustomerNew.Add(new Customer());
-        //}
+        //Will initialize the empty object cu in the UI to pass through AddCust
+        public void AddCust(Customer cu)
+        {
+            AmountCust.Add(cu);
+        }
 
-        //public List<Customer> SearchCust()
-        //{
-        //    foreach(var cust in CustomerNew)
-        //    {
-        //        if(cust.Equals())
-        //    }
-        //}
+        //Added this in, will think about it
+        public void RemoveCust(Customer cu)
+        {
+            AmountCust.Remove(cu);
+        }
+
+        public void SearchCust()
+        {
+            foreach(var custom in AmountCust)
+            {
+                //Will fill this in later, maybe in UI
+            }
+        }
+
     }
 }
