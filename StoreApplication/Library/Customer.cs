@@ -18,18 +18,33 @@ namespace Library
         private int PhoneNum;
 
         List<Customer> AmountCust = new List<Customer>();
-          public Customer() 
-          { 
-          }
-        
-        //Might change this to a method to make adding customers to List easier
-          public Customer(string firstName, string lastName, string address, int phone )
-          {          
-                fname = firstName;
-                lname = lastName;
-                CustAddress = address;
-                PhoneNum = phone;
-          }
+
+        public Customer()
+        {
+
+        }
+
+        public Customer(string firstName, string lastName, string address, int phone)
+        {
+            fname = firstName;
+            lname = lastName;
+            CustAddress = address;
+            PhoneNum = phone;
+
+        }
+
+        //Might not use this
+        public void CustomerAdd(string firstName, string lastName, string address, int phone)
+        {
+            Customer cust = new Customer();
+
+            cust.FirstName = firstName;
+            cust.LastName = lastName;
+            cust.CustAddress = address;
+            cust.Phone = phone;
+
+            AmountCust.Add(cust);
+        }
 
         //made this static
         public string FirstName
@@ -74,7 +89,7 @@ namespace Library
             Console.WriteLine("Name: " + fname + " " + lname + ", Address: " + CustAddress + ", Phone: " + PhoneNum);
         }
 
-        //Will initialize the empty object cu in the UI to pass through AddCust
+        //MIGHT DELETE, MIGHT NOT USE, UNSURE
         public void AddCust(Customer cu)
         {
             AmountCust.Add(cu);

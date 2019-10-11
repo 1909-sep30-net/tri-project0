@@ -6,17 +6,18 @@ namespace Library
 {
     public class Product
     {
-        //Might be placehold, will figure out later
         //Products and their IDs
         
         //Made static
         static List<Product> ActualProduct = new List<Product>();
          
-        public string Omega = "Omega";
-        public string Rolex = "Rolex";
-        public string GrandSeiko = "Grand Seiko";
-        public string IWC = "IWC";
+        //public string Omega = "Omega";
+        //public string Rolex = "Rolex";
+        //public string GrandSeiko = "Grand Seiko";
+        //public string IWC = "IWC"; //schaffhausen
 
+        public string Brand { get; set; }
+        
         public int NumOmega { get; set; }
         public int NumRolex { get; set; }
 
@@ -47,7 +48,7 @@ namespace Library
             //{
             //    Console.WriteLine("Your product: " + prod.Model);
             //}
-            Console.WriteLine("Your model: " + Model + ", ID: " + ID );
+            Console.WriteLine("Your brand: " + Brand + ", model: " + Model + ", ID: " + ID );
         }
 
     }
