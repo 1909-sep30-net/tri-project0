@@ -8,14 +8,17 @@ namespace Library
     /// This is the customer class.
     /// It has their name and address
     /// </summary>
-    public class Customer
+    public  class Customer
     {
+        //changed PhoneNum and it methods that access it from type int to type string
+
         public string defaultStore = "Arlington";
         private string fname;
         private string lname;
         private string StoreAddress;
         private string CustAddress;
-        private int PhoneNum;
+        private string PhoneNum;
+        private int CID;
 
         List<Customer> AmountCust = new List<Customer>();
 
@@ -24,7 +27,7 @@ namespace Library
 
         }
 
-        public Customer(string firstName, string lastName, string address, int phone)
+        public Customer(string firstName, string lastName, string address, string phone)
         {
             fname = firstName;
             lname = lastName;
@@ -34,7 +37,7 @@ namespace Library
         }
 
         //Might not use this
-        public void CustomerAdd(string firstName, string lastName, string address, int phone)
+        public void CustomerAdd(string firstName, string lastName, string address, string phone)
         {
             Customer cust = new Customer();
 
@@ -67,7 +70,7 @@ namespace Library
             set { CustAddress = value; }
         }
 
-        public int Phone
+        public string Phone
         {
             get { return PhoneNum; }
             set { PhoneNum = value; }

@@ -48,7 +48,7 @@ namespace Library
             //{
             //    Console.WriteLine("Your product: " + prod.Model);
             //}
-            Console.WriteLine("Your brand: " + Brand + ", model: " + Model + ", ID: " + ID );
+            Console.WriteLine("Your ID: " + ID + ", brand: " + Brand + ", model: " + Model);
         }
 
     }

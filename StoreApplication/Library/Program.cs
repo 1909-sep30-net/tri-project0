@@ -13,9 +13,9 @@ namespace Library
 
             List<Customer> CustList = new List<Customer>();
             
-            Customer customer1 = new Customer("Rotty", "Tops", "Sequin Land", 8675309);
-            Customer customer2 = new Customer("Shantae", "Genie", "Sequin Land", 5556969);
-            Customer customer3 = new Customer("Risky", "Boots", "Seven Seas", 1002000);
+            Customer customer1 = new Customer("Rotty", "Tops", "Sequin Land", "8675309");
+            Customer customer2 = new Customer("Shantae", "Genie", "Sequin Land", "5556969");
+            Customer customer3 = new Customer("Risky", "Boots", "Seven Seas", "1002000");
 
             customer1.DisplayCust();
             customer2.DisplayCust();
@@ -23,7 +23,7 @@ namespace Library
             customer1.FirstName = "Sky";
             customer1.LastName = "Trainer";
             customer1.Address = "Mermaid Falls";
-            customer1.Phone = 7777777;
+            customer1.Phone = "7777777";
 
             customer1.DisplayCust();
 
