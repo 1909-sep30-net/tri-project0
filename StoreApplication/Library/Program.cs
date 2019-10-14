@@ -9,50 +9,50 @@ namespace Library
         {
 
             //fast testing customer class
-            Console.WriteLine("Hello World!");
+            //console.writeline("hello world!");
 
-            List<Customer> CustList = new List<Customer>();
+            //list<customer> custlist = new list<customer>();
             
-            Customer customer1 = new Customer("Rotty", "Tops", "Sequin Land", "8675309");
-            Customer customer2 = new Customer("Shantae", "Genie", "Sequin Land", "5556969");
-            Customer customer3 = new Customer("Risky", "Boots", "Seven Seas", "1002000");
+            //customer customer1 = new customer("rotty", "tops", "sequin land", "8675309");
+            //customer customer2 = new customer("shantae", "genie", "sequin land", "5556969");
+            //customer customer3 = new customer("risky", "boots", "seven seas", "1002000");
 
-            customer1.DisplayCust();
-            customer2.DisplayCust();
+            //customer1.displaycust();
+            //customer2.displaycust();
 
-            customer1.FirstName = "Sky";
-            customer1.LastName = "Trainer";
-            customer1.Address = "Mermaid Falls";
-            customer1.Phone = "7777777";
+            //customer1.firstname = "sky";
+            //customer1.lastname = "trainer";
+            //customer1.address = "mermaid falls";
+            //customer1.phone = "7777777";
 
-            customer1.DisplayCust();
+            //customer1.displaycust();
 
-            CustList.Add(customer1);
+            //custlist.add(customer1);
 
-            foreach (Customer cust in CustList)
-            {
-                Console.WriteLine(cust.FirstName + ' ' + cust.LastName);
-            }
-            Console.WriteLine(CustList[0].FirstName);
+            //foreach (customer cust in custlist)
+            //{
+            //    console.writeline(cust.firstname + ' ' + cust.lastname);
+            //}
+            //console.writeline(custlist[0].firstname);
 
-            CustList.ForEach(Console.WriteLine);
+            //custlist.foreach(console.writeline);
 
-            List<Product> MyOrder = new List<Product>();
+            //list<product> myorder = new list<product>();
 
-            Product Prod1 = new Product();
-            Product Prod2 = new Product();
+            //product prod1 = new product();
+            //product prod2 = new product();
 
-            Prod1.Brand = "Omega";
+            //prod1.brand = "omega";
 
-            Prod1.Model = "Sea Master";
-            Prod2.Model = "Snowflake";
+            //prod1.model = "sea master";
+            //prod2.model = "snowflake";
 
-            Prod1.ID = 1;
+            //prod1.id = 1;
             
-            Product.AddProd(Prod1);
-            Product.AddProd(Prod2);
+            //product.addprod(prod1);
+            //product.addprod(prod2);
             
-            Prod1.DisplayProd();
+            //prod1.displayprod();
 
 
         }

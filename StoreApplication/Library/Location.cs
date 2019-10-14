@@ -12,7 +12,7 @@ namespace Library
         List<Product> InventoryLocation = new List<Product>();
 
         public string Locate { get; set; }
-        public int ID { get; set; }
+        public int LID { get; set; }
 
         //adds to inventory
         public void AddLocation(Product stock)

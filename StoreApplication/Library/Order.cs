@@ -6,6 +6,8 @@ namespace Library
 {
     public class Order
     {
+
+        public int OID { get; set; }
         public string StoreAddress { get; set; }
 
         Customer customer { get; set; }

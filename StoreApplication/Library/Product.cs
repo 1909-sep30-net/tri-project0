@@ -28,7 +28,7 @@ namespace Library
 
         public string Model { get; set; }
 
-        public int ID { get; set; }
+        public int PID { get; set; }
 
         //made static
         public static void AddProd(Product MyP)
@@ -48,7 +48,7 @@ namespace Library
             //{
             //    Console.WriteLine("Your product: " + prod.Model);
             //}
-            Console.WriteLine("Your ID: " + ID + ", brand: " + Brand + ", model: " + Model);
+            Console.WriteLine("Your ID: " + PID + ", brand: " + Brand + ", model: " + Model);
         }
 
     }

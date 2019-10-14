@@ -4,91 +4,114 @@ using System.Collections.Generic;
 
 //UI
 //Where I shall run the watch store from
+//Will clean up with method calls so it can be easy to look at
 namespace WatchStore
 {
     class Program
     {
         static void Main(string[] args)
         {
-            bool running = true;
+            bool Running = true;
+            
+            //Generates random number for ID
+            //Have to add more implementation for a unique ID
+            Random Rand = new Random();
+            int RandID = Rand.Next(1, 1000);
+
             List<Customer> OurCust = new List<Customer>();
             List<Product> OurProd = new List<Product>();
             List<Order> OurOrd = new List<Order>();
 
-            while (running == true)
+            while (Running == true)
             {
-                Console.WriteLine("Please enter your destination.");
-                Console.WriteLine("[1] Place an order.");
-                Console.WriteLine("[2] Order history.");
-                Console.WriteLine("[3] Recent customers.");
-                Console.WriteLine("[4] Check products.");
-                Console.WriteLine("[5] Quit.");
+                Console.WriteLine("Welcome! What would you like to do?");
+                Console.WriteLine("[1] Place an order");
+                Console.WriteLine("[2] Order history");
+                Console.WriteLine("[3] Recent customers");
+                Console.WriteLine("[4] Check products");
+                Console.WriteLine("[5] Quit");
+                Console.WriteLine("");
 
-                var answer = Console.Read();
 
-                //Will add more functionality to the UI in the future
-                //Will use class methods to display stuff later, place holder
-                switch (answer)
+                string input = Console.ReadLine();
+
+                switch (input)
                 {
-                    case 1:
-                        Console.WriteLine("Placing Order: ");
-                        //Method to place order according to location and inventory
+                    case "1":
+                        Console.WriteLine("");
+
                         Console.WriteLine("What is your first name?");
+
+                        var first = Console.ReadLine();
+                        
                         Console.WriteLine("What is your last name?");
+
+                        var second = Console.ReadLine();
+
                         Console.WriteLine("What is your address?");
+
+                        var address = Console.ReadLine();
+
                         Console.WriteLine("What is your phone number?");
                         
-                        var first = Console.ReadLine();
-                        var last = Console.ReadLine();
-                        var address = Console.ReadLine();
                         var phone = Console.ReadLine();
 
-                        Customer cust = new Customer(first, last, address, phone);
+                        var yourID = RandID;
+
+                        Customer cust = new Customer(yourID, first, second, address, phone);
+
+                        Console.WriteLine("This is you: ");
+                        cust.DisplayCust();
                         OurCust.Add(cust);
 
+                        Console.WriteLine("Would you like to quit back to main menu? y or n");
 
+                        var quit = Console.ReadLine();
+                        if(quit == "y")
+                        { 
+                            break;
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Closing up");
+                            Running = false;
+                        }
 
                         break;
-                    case 2:
+                        
+                    case "2":
                         Console.WriteLine("Most recent order history: ");
                         //Run foreach loop to loop through order history
-                        foreach (Product prod in OurProd)
+                        foreach( Product prod in OurProd)
                         {
                             Console.WriteLine(prod.ID + " " + prod.Brand + " " + prod.Model);
                         }
 
-
                         break;
-                    case 3:
+                    case "3":
                         Console.WriteLine("The recent customers: ");
-                        //Run foreach loop to loop through customer list
                         foreach (Customer cus in OurCust)
                         {
                             Console.WriteLine(cus.FirstName + " " + cus.LastName + " " + cus.Address + " " + cus.Phone);
                         }
 
                         break;
-                    case 4:
+                    case "4":
                         Console.WriteLine("Checking available products: ");
                         Console.WriteLine("Brand: Omega - Model: Seamaster");
                         Console.WriteLine("Brand: Rolex - Model: Datejust");
                         Console.WriteLine("Brand: Grand Seiko - Model: Snowflake");
                         Console.WriteLine("Brand: IWC - Model: Flieger");
-
                         break;
-                    case 5:
-                        Console.WriteLine("Closing, goodbye!");
-                        running = false;
+                    case "5":
+                        Console.WriteLine("Quitting!");
+                            Running = false;
                         break;
-                    default:
-                        Console.WriteLine("Wrong input, try again!");
-                            break;
-                }
+                }//Switch statement
 
+            }//while loop
 
-
-
-            }
         }
     }
 }

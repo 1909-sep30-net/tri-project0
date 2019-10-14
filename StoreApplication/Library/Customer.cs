@@ -27,8 +27,9 @@ namespace Library
 
         }
 
-        public Customer(string firstName, string lastName, string address, string phone)
+        public Customer(int id, string firstName, string lastName, string address, string phone)
         {
+            CID = id;
             fname = firstName;
             lname = lastName;
             CustAddress = address;
@@ -50,6 +51,13 @@ namespace Library
         }
 
         //made this static
+
+        public int ID
+        {
+            get { return CID; }
+            set { CID = value; }
+        }
+
         public string FirstName
         {
             get{ return fname; }
@@ -89,7 +97,7 @@ namespace Library
         }
         public void DisplayCust()
         {
-            Console.WriteLine("Name: " + fname + " " + lname + ", Address: " + CustAddress + ", Phone: " + PhoneNum);
+            Console.WriteLine("ID: "+ CID+ ", Name: " + fname + " " + lname + ", Address: " + CustAddress + ", Phone: " + PhoneNum);
         }
 
         //MIGHT DELETE, MIGHT NOT USE, UNSURE
