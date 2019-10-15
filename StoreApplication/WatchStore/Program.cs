@@ -2,6 +2,13 @@
 using Library;
 using System.Collections.Generic;
 
+//Added these usings
+using System.Linq;
+//using WatchStore.Entities; //Comment this out to get rid of ambiguity with classes
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging; //For use of logging
+
+
 //UI
 //Where I shall run the watch store from
 //Will clean up with method calls so it can be easy to look at
@@ -11,6 +18,14 @@ namespace WatchStore
     {
         static void Main(string[] args)
         {
+            //Added this to start to connect the database with visual
+            //string connectionString = SecretConfiguration.ConnectionString;
+            //DbContextOptions<WatchStoreContext> options = new DbContextOptionsBuilder<WatchStoreContext>()
+            //    .UseSqlServer(connectionString)
+            //    //.UseLoggerFactory(Logger)
+            //    .Options;
+
+
             bool Running = true;
             
             //Generates random number for ID
@@ -18,9 +33,12 @@ namespace WatchStore
             Random Rand = new Random();
             int RandID = Rand.Next(1, 1000);
 
+            //List<WatchStore.Entities.Customer> OurCust = new List<WatchStore.Entities.Customer>();
             List<Customer> OurCust = new List<Customer>();
             List<Product> OurProd = new List<Product>();
             List<Order> OurOrd = new List<Order>();
+
+            //WatchStore.Repository
 
             while (Running == true)
             {
@@ -85,7 +103,7 @@ namespace WatchStore
                         //Run foreach loop to loop through order history
                         foreach( Product prod in OurProd)
                         {
-                            Console.WriteLine(prod.ID + " " + prod.Brand + " " + prod.Model);
+                            Console.WriteLine(prod.PID + " " + prod.Brand + " " + prod.Model);
                         }
 
                         break;

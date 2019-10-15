@@ -9,6 +9,13 @@ namespace WatchStoreUnitTest
     public class Program
     {
         //[Fact] over every method I want to test
+        static void Main(string [] args)
+        {
+            Console.WriteLine("Testing happening now!");
+
+            //blah blah
+        }
+        
         [Fact]
         public void RemoveShouldRemove()
         {
