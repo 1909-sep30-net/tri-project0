@@ -71,7 +71,7 @@ namespace WatchStore
                         var address = Console.ReadLine();
 
                         Console.WriteLine("What is your phone number?");
-                        
+
                         var phone = Console.ReadLine();
 
                         var yourID = RandID;

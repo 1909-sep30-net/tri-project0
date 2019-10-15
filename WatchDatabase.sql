@@ -5,7 +5,7 @@ CREATE TABLE Customer
   CID INT				NOT NULL,
   Names VARCHAR(30)		NOT NULL,
   Addresses VARCHAR(50)	NOT NULL,
-  Phone INT				NOT NULL,
+  Phone VARCHAR(15)		NOT NULL,
   PRIMARY KEY (CID)
 );
 
@@ -74,7 +74,11 @@ Drop Table Inventory; --2
 
 
 Insert Into Customer(CID, Names, Addresses, Phone) Values(1, 'Rotty Tops', 'Sequin Land', 8675309);
+Insert Into Customer(CID, Names, Addresses, Phone) Values(2, 'Shantae Genie', 'Sequin Land', 4548787);
 Delete From Customer Where Customer.CID = 1;
+Delete From Customer Where Customer.CID = 2;
+
+
 
 Select* From Customer;
 Select* From Orders;

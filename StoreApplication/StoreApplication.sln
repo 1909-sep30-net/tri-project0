@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatchStore", "WatchStore\Wa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatchStoreUnitTest", "WatchStoreUnitTest\WatchStoreUnitTest.csproj", "{F3D2D2A5-AE3C-488B-909D-1F8391ECEC97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{86B6D73E-91FE-4DA1-A12C-BA70833895C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{86B6D73E-91FE-4DA1-A12C-BA70833895C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
