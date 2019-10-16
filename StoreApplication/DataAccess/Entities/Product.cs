@@ -11,8 +11,8 @@ namespace DataAccess.Entities
             Inventory = new HashSet<Inventory>();
         }
 
-        public string Names { get; set; }
         public int Pid { get; set; }
+        public string Names { get; set; }
         public int Price { get; set; }
         public string Model { get; set; }
 

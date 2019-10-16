@@ -2,7 +2,7 @@
 --Last edit 10-15-19
 CREATE TABLE Customer 
 (
-  CID INT				NOT NULL,
+  CID INT IDENTITY(1,1)			,
   Names VARCHAR(30)		NOT NULL,
   Addresses VARCHAR(50)	NOT NULL,
   Phone VARCHAR(15)		NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE Customer
 
 CREATE TABLE Orders
 (
-  OID INT					NOT NULL,
+  OID INT IDENTITY(1,1)		NOT NULL,
   CID INT					NOT NULL,
   LID INT					NOT NULL,
   Order_Type VARCHAR(30)	NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE Orders
 
 CREATE TABLE Product
 (
-  PID INT					NOT NULL,
+  PID INT IDENTITY(1,1)		NOT NULL,
   Names VARCHAR(30)			NOT NULL,
   Price INT					NOT NULL,
   Model VARCHAR(30)			NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE Customer_Order
 
 CREATE TABLE Locations
 (
-  LID INT				NOT NULL,
+  LID INT IDENTITY(1,1)			,
   Located VARCHAR(30)	NOT NULL,
   Inventory INT			NOT NULL,
   PRIMARY KEY (LID)
@@ -67,7 +67,7 @@ CREATE TABLE Inventory
 --Drop Table Product; --4
 
 --Drop Table dbo.Customer_Order; --1
-
+ 
 
 --Drop Table Locations; --5
 
@@ -88,6 +88,8 @@ CREATE TABLE Inventory
 --Insert Into Inventory(LID, PID, Quantity) Values(1, 1, 2);
 
 --Insert Into Orders(OID, CID, LID, Order_Type, Order_Time) Values(1, 2, 1, 'Stainless steel', '2019-10-15');
+
+--Insert Into Customer_Order(OID, PID, Amount) Values(1, 1, 2);
 
 --Select*
 --From Orders

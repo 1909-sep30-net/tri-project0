@@ -11,8 +11,8 @@ namespace DataAccess.Entities
             Orders = new HashSet<Orders>();
         }
 
-        public string Located { get; set; }
         public int Lid { get; set; }
+        public string Located { get; set; }
         public int Inventory { get; set; }
 
         public virtual ICollection<Inventory> InventoryNavigation { get; set; }

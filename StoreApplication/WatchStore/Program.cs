@@ -1,13 +1,10 @@
 ﻿using System;
-using Library;
 using System.Collections.Generic;
 
 //Added these usings
+using Library;
+using Library.Interface;
 using System.Linq;
-//using WatchStore.Entities; //Comment this out to get rid of ambiguity with classes
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging; //For use of logging
-//using DataAccess.Entities;
 
 
 //UI
@@ -19,12 +16,10 @@ namespace WatchStore
     {
         static void Main(string[] args)
         {
-            //Added this to start to connect the database with visual
-            //string connectionString = SecretConfiguration.ConnectionString;
-           // DbContextOptions<WatchStoreContext> options = new DbContextOptionsBuilder<WatchStoreContext>()
-                //.UseSqlServer(connectionString)
-                //.UseLoggerFactory(Logger)
-                //.Options;
+            //Creates and establishes a connection between
+            //the database and VS
+            using IRepo WatchStoreRepo = Dependency.CreateWatchStoreRepo();
+            
 
 
             bool Running = true;
@@ -43,12 +38,14 @@ namespace WatchStore
 
             while (Running == true)
             {
+                //Might make 1 into add new customer and such
                 Console.WriteLine("Welcome! What would you like to do?");
-                Console.WriteLine("[1] Place an order");
-                Console.WriteLine("[2] Order history");
-                Console.WriteLine("[3] Recent customers");
-                Console.WriteLine("[4] Check products");
-                Console.WriteLine("[5] Quit");
+                Console.WriteLine("[1] Add a customer");
+                Console.WriteLine("[2] Recent customers");
+                Console.WriteLine("[3] Place an order");
+                Console.WriteLine("[4] Order history");
+                Console.WriteLine("[5] Check products");
+                Console.WriteLine("[6] Quit");
                 Console.WriteLine("");
 
 
@@ -73,11 +70,20 @@ namespace WatchStore
 
                         var yourID = RandID;
 
-                        Customer cust = new Customer(yourID, name, address, phone);
+                        var cust = new Customer();
+                        cust.Names = name;
+                        cust.Address = address;
+                        cust.Phone = phone;
+                        //cust.ID = yourID;
+
+                        WatchStoreRepo.AddCustomer(cust);
+                        WatchStoreRepo.Save();
+
 
                         Console.WriteLine("This is you: ");
+                        //Might have to + 1 the ID to match the Database
                         cust.DisplayCust();
-                        OurCust.Add(cust);
+                        
 
                         Console.WriteLine("Would you like to quit back to main menu? y or n");
 
@@ -97,34 +103,47 @@ namespace WatchStore
                         break;
                         
                     case "2":
+                        
+
+                        Console.WriteLine("The recent customers: ");
+                        //foreach (Library.Customer cus in OurCust)
+                        //{
+                        //    Console.WriteLine(cus.ID + " " + cus.Names + " " + cus.Address + " " + cus.Phone);
+                        //    Console.WriteLine("");
+                        //}
+                        
+                        //var customerInput = Console.ReadLine();
+                        //WatchStoreRepo.SearchCustomerName(customerInput);
+                        //Console.WriteLine("");
+
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Placing your order, please choose a customer: ");
+
+                        break;
+
+                    case "4":
                         Console.WriteLine("Most recent order history: ");
                         //Run foreach loop to loop through order history
-                        foreach( Product prod in OurProd)
+                        foreach (Product prod in OurProd)
                         {
                             Console.WriteLine(prod.PID + " " + prod.Names + " " + prod.Model);
                         }
-                        Console.WriteLine("");
-
                         break;
-                    case "3":
-                        Console.WriteLine("The recent customers: ");
-                        foreach (Library.Customer cus in OurCust)
-                        {
-                            Console.WriteLine(cus.ID + " " + cus.Names + " " + cus.Address + " " + cus.Phone);
-                            Console.WriteLine("");
-                        }
 
-                        break;
-                    case "4":
+                    case "5":
                         Console.WriteLine("Checking available products: ");
                         Console.WriteLine("Brand: Omega - Model: Seamaster");
                         Console.WriteLine("Brand: Rolex - Model: Datejust");
                         Console.WriteLine("Brand: Grand Seiko - Model: Snowflake");
                         Console.WriteLine("Brand: IWC - Model: Flieger");
+
                         break;
-                    case "5":
+
+                    case "6":
                         Console.WriteLine("Quitting!");
-                            Running = false;
+                        Running = false;
                         break;
                 }//Switch statement
 

@@ -22,17 +22,14 @@ namespace DataAccess.Entities
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Product> Product { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasKey(e => e.Cid)
-                    .HasName("PK__Customer__C1F8DC597FE035A7");
+                    .HasName("PK__Customer__C1F8DC59C4899730");
 
-                entity.Property(e => e.Cid)
-                    .HasColumnName("CID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Cid).HasColumnName("CID");
 
                 entity.Property(e => e.Addresses)
                     .IsRequired()
@@ -65,13 +62,13 @@ namespace DataAccess.Entities
                     .WithMany(p => p.CustomerOrder)
                     .HasForeignKey(d => d.Oid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Customer_Or__OID__03F0984C");
+                    .HasConstraintName("FK__Customer_Or__OID__41EDCAC5");
 
                 entity.HasOne(d => d.P)
                     .WithMany(p => p.CustomerOrder)
                     .HasForeignKey(d => d.Pid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Customer_Or__PID__04E4BC85");
+                    .HasConstraintName("FK__Customer_Or__PID__42E1EEFE");
             });
 
             modelBuilder.Entity<Inventory>(entity =>
@@ -87,23 +84,21 @@ namespace DataAccess.Entities
                     .WithMany(p => p.InventoryNavigation)
                     .HasForeignKey(d => d.Lid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Inventory__LID__0A9D95DB");
+                    .HasConstraintName("FK__Inventory__LID__3A4CA8FD");
 
                 entity.HasOne(d => d.P)
                     .WithMany(p => p.Inventory)
                     .HasForeignKey(d => d.Pid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Inventory__PID__0B91BA14");
+                    .HasConstraintName("FK__Inventory__PID__3B40CD36");
             });
 
             modelBuilder.Entity<Locations>(entity =>
             {
                 entity.HasKey(e => e.Lid)
-                    .HasName("PK__Location__C6555721C3D79294");
+                    .HasName("PK__Location__C65557214E39ED86");
 
-                entity.Property(e => e.Lid)
-                    .HasColumnName("LID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Lid).HasColumnName("LID");
 
                 entity.Property(e => e.Located)
                     .IsRequired()
@@ -114,11 +109,9 @@ namespace DataAccess.Entities
             modelBuilder.Entity<Orders>(entity =>
             {
                 entity.HasKey(e => e.Oid)
-                    .HasName("PK__Orders__CB394B396E3801BE");
+                    .HasName("PK__Orders__CB394B399D3A997B");
 
-                entity.Property(e => e.Oid)
-                    .HasColumnName("OID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Oid).HasColumnName("OID");
 
                 entity.Property(e => e.Cid).HasColumnName("CID");
 
@@ -138,23 +131,21 @@ namespace DataAccess.Entities
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.Cid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Orders__CID__7E37BEF6");
+                    .HasConstraintName("FK__Orders__CID__3E1D39E1");
 
                 entity.HasOne(d => d.L)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.Lid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Orders__LID__7F2BE32F");
+                    .HasConstraintName("FK__Orders__LID__3F115E1A");
             });
 
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.HasKey(e => e.Pid)
-                    .HasName("PK__Product__C5775520C99B98DC");
+                    .HasName("PK__Product__C57755205C59C208");
 
-                entity.Property(e => e.Pid)
-                    .HasColumnName("PID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Pid).HasColumnName("PID");
 
                 entity.Property(e => e.Model)
                     .IsRequired()

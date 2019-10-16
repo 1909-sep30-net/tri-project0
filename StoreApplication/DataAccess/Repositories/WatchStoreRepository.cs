@@ -35,10 +35,12 @@ namespace DataAccess.Repositories
             MyDBContext.Add(Entity);
         }
 
-        public Library.Customer SearchCustomerName(string name)
+        public Library.Customer SearchCustomerName(Library.Customer customer)
         {
-            return Map.MapEFWithCustomer(MyDBContext.Customer.Find(name));
+            return Map.MapEFWithCustomer(MyDBContext.Customer.Find(customer));
         }
+
+
 
         public void Save()
         {

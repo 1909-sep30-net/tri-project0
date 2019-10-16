@@ -10,7 +10,7 @@ namespace Library.Interface
     {
         void AddCustomer(Customer customer);
 
-        Customer SearchCustomerName(string name);
+        Customer SearchCustomerName(Customer customers);
 
         void Save();
     }
