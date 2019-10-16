@@ -8,19 +8,10 @@ namespace Library.Interface
 {
     public interface IRepo: IDisposable
     {
+        void AddCustomer(Customer customer);
 
-        void PlaceOrder(Order ord);
-        void AddCustomer(Customer cus);
-        IEnumerable<Customer> SearchCustomer(string searching = null);
+        Customer SearchCustomerName(string name);
 
-        void DisplayCustomerOrder();
-
-        //void DisplayStoreHistory();
-
-        void DisplayCustomerHistory();
-
-
-
-        //
+        void Save();
     }
 }

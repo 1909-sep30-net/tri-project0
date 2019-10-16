@@ -12,9 +12,10 @@ namespace Library
     {
         //changed PhoneNum and it methods that access it from type int to type string
 
+        //Got rid of first and last name and fused them into on name
+
         public string defaultStore = "Arlington";
-        private string fname;
-        private string lname;
+        private string Name;
         private string StoreAddress;
         private string CustAddress;
         private string PhoneNum;
@@ -22,28 +23,30 @@ namespace Library
 
         List<Customer> AmountCust = new List<Customer>();
 
+        //Added this public list so other classes can use it instead of the in class one above
+        //List of customer's orders including their info: name, address, etc
+        public List<Order> CustomerOrder { get; set; } = new List<Order>();
+
         public Customer()
         {
 
         }
 
-        public Customer(int id, string firstName, string lastName, string address, string phone)
+        public Customer(int id, string name, string address, string phone)
         {
             CID = id;
-            fname = firstName;
-            lname = lastName;
+            Name = name;
             CustAddress = address;
             PhoneNum = phone;
 
         }
 
         //Might not use this
-        public void CustomerAdd(string firstName, string lastName, string address, string phone)
+        public void CustomerAdd(string name, string address, string phone)
         {
             Customer cust = new Customer();
 
-            cust.FirstName = firstName;
-            cust.LastName = lastName;
+            cust.Name = name;
             cust.CustAddress = address;
             cust.Phone = phone;
 
@@ -58,18 +61,11 @@ namespace Library
             set { CID = value; }
         }
 
-        public string FirstName
+        public string Names
         {
-            get{ return fname; }
+            get{ return Name; }
 
-            set{ fname = value; }
-        }
-
-        public string LastName
-        {
-            get{ return lname; }
-            
-            set{ lname = value; }
+            set{ Name = value; }
         }
 
         public string Address
@@ -86,18 +82,14 @@ namespace Library
         
         public void ValidationName()
         {
-            if(fname.Length < 1)
+            if(Name.Length < 1)
             {
                 throw new Exception("First name is not long enough!");
-            }
-            else if (lname.Length < 1)
-            {
-                throw new Exception("Last name is not long enough!");
             }
         }
         public void DisplayCust()
         {
-            Console.WriteLine("ID: "+ CID+ ", Name: " + fname + " " + lname + ", Address: " + CustAddress + ", Phone: " + PhoneNum);
+            Console.WriteLine("ID: "+ CID+ ", Name: " + Name + ", Address: " + CustAddress + ", Phone: " + PhoneNum);
         }
 
         //MIGHT DELETE, MIGHT NOT USE, UNSURE

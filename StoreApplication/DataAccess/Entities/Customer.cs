@@ -13,8 +13,6 @@ namespace DataAccess.Entities
         public int Cid { get; set; }
         public string Names { get; set; }
         public string Addresses { get; set; }
-
-        //Changed from int to string
         public string Phone { get; set; }
 
         public virtual ICollection<Orders> Orders { get; set; }

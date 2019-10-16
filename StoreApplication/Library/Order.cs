@@ -8,11 +8,17 @@ namespace Library
     {
 
         public int OID { get; set; }
-        public string StoreAddress { get; set; }
 
-        Customer customer { get; set; }
+        public int CID { get; set; }
+        
+        public int LID { get; set; }
 
-        public int OrderTime { get; set; }
+        //Replaced with LID
+        //public string StoreAddress { get; set; }
+
+        //Customer customer { get; set; }
+
+        public DateTime OrderTime { get; set; }
 
         public string OrderType { get; set; }
 

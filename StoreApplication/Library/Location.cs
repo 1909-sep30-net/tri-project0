@@ -14,6 +14,8 @@ namespace Library
         public string Locate { get; set; }
         public int LID { get; set; }
 
+        public int Inventory { get; set; }
+
         //adds to inventory
         public void AddLocation(Product stock)
         {

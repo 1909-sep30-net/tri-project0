@@ -16,7 +16,7 @@ namespace Library
         //public string GrandSeiko = "Grand Seiko";
         //public string IWC = "IWC"; //schaffhausen
 
-        public string Brand { get; set; }
+        public string Names { get; set; } //Will be Names in Database
         
         public int NumOmega { get; set; }
         public int NumRolex { get; set; }
@@ -29,6 +29,8 @@ namespace Library
         public string Model { get; set; }
 
         public int PID { get; set; }
+
+        public int Price { get; set; }
 
         //made static
         public static void AddProd(Product MyP)
@@ -48,7 +50,7 @@ namespace Library
             //{
             //    Console.WriteLine("Your product: " + prod.Model);
             //}
-            Console.WriteLine("Your ID: " + PID + ", brand: " + Brand + ", model: " + Model);
+            Console.WriteLine("Your ID: " + PID + ", brand: " + Names + ", model: " + Model);
         }
 
     }

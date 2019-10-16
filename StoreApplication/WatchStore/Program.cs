@@ -7,6 +7,7 @@ using System.Linq;
 //using WatchStore.Entities; //Comment this out to get rid of ambiguity with classes
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging; //For use of logging
+//using DataAccess.Entities;
 
 
 //UI
@@ -20,10 +21,10 @@ namespace WatchStore
         {
             //Added this to start to connect the database with visual
             //string connectionString = SecretConfiguration.ConnectionString;
-            //DbContextOptions<WatchStoreContext> options = new DbContextOptionsBuilder<WatchStoreContext>()
-            //    .UseSqlServer(connectionString)
-            //    //.UseLoggerFactory(Logger)
-            //    .Options;
+           // DbContextOptions<WatchStoreContext> options = new DbContextOptionsBuilder<WatchStoreContext>()
+                //.UseSqlServer(connectionString)
+                //.UseLoggerFactory(Logger)
+                //.Options;
 
 
             bool Running = true;
@@ -58,13 +59,9 @@ namespace WatchStore
                     case "1":
                         Console.WriteLine("");
 
-                        Console.WriteLine("What is your first name?");
+                        Console.WriteLine("What is your first and last name?");
 
-                        var first = Console.ReadLine();
-                        
-                        Console.WriteLine("What is your last name?");
-
-                        var second = Console.ReadLine();
+                        var name = Console.ReadLine();
 
                         Console.WriteLine("What is your address?");
 
@@ -76,7 +73,7 @@ namespace WatchStore
 
                         var yourID = RandID;
 
-                        Customer cust = new Customer(yourID, first, second, address, phone);
+                        Customer cust = new Customer(yourID, name, address, phone);
 
                         Console.WriteLine("This is you: ");
                         cust.DisplayCust();
@@ -86,7 +83,8 @@ namespace WatchStore
 
                         var quit = Console.ReadLine();
                         if(quit == "y")
-                        { 
+                        {
+                            Console.WriteLine("");
                             break;
                             
                         }
@@ -103,15 +101,17 @@ namespace WatchStore
                         //Run foreach loop to loop through order history
                         foreach( Product prod in OurProd)
                         {
-                            Console.WriteLine(prod.PID + " " + prod.Brand + " " + prod.Model);
+                            Console.WriteLine(prod.PID + " " + prod.Names + " " + prod.Model);
                         }
+                        Console.WriteLine("");
 
                         break;
                     case "3":
                         Console.WriteLine("The recent customers: ");
-                        foreach (Customer cus in OurCust)
+                        foreach (Library.Customer cus in OurCust)
                         {
-                            Console.WriteLine(cus.FirstName + " " + cus.LastName + " " + cus.Address + " " + cus.Phone);
+                            Console.WriteLine(cus.ID + " " + cus.Names + " " + cus.Address + " " + cus.Phone);
+                            Console.WriteLine("");
                         }
 
                         break;
