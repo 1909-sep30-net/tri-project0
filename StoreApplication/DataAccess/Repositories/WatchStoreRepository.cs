@@ -35,14 +35,11 @@ namespace DataAccess.Repositories
             MyDBContext.Add(Entity);
         }
 
-        public Library.Customer SearchCustomerName(Library.Customer customer)
+        public void LookCustomer(string name)
         {
-            return Map.MapEFWithCustomer(MyDBContext.Customer.Find(customer));
-        }
-
-        public Library.Customer FindCustomerName(string name)
-        {
-            return MyDBContext.Customer.Select(Map.MapEFWithCustomer).Where(cust => cust.Names == name).FirstOrDefault();
+            var InputName = MyDBContext.Customer.FirstOrDefault(n=>n.Names == name);
+            Console.WriteLine("Found " + name + " at: ");
+            Console.WriteLine("ID: " + InputName.Cid + " Name: " + InputName.Names + " Address: " + InputName.Addresses + " Phone: " + InputName.Phone);
         }
 
         //Gets all customer from entity convert to library data then put to list
@@ -56,6 +53,18 @@ namespace DataAccess.Repositories
         {
             IQueryable<Entities.Product> prod = MyDBContext.Product.AsNoTracking();
             return prod.Select(Map.MapEFWithProduct).ToList();
+        }
+
+        public List<Library.Order> GetAllOrder()
+        {
+            IQueryable<Entities.Orders> ord = MyDBContext.Orders.AsNoTracking();
+            return ord.Select(Map.MapEFWithOrder).ToList();
+        }
+
+        public List<Library.Location> GetAllLocation()
+        {
+            IQueryable<Entities.Locations> loc = MyDBContext.Locations.AsNoTracking();
+            return loc.Select(Map.MapEFWithLocation).ToList();
         }
 
         public void Save()

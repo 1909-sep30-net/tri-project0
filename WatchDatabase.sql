@@ -85,8 +85,10 @@ CREATE TABLE Inventory
 --Insert Into Product(Names, Price, Model) Values('Rolex', 5700, 'Datejust');
 --Insert Into Product(Names, Price, Model) Values('Grand Seiko', 5500, 'Snowflake');
 --Insert Into Product(Names, Price, Model) Values('IWC', 1200, 'Flieger');
+--Insert Into Product(Names, Price, Model) Values('Timex', 200, 'Marlin');
 
 --Insert Into Locations(Located, Inventory) Values('Geneva', 100); 
+--Insert Into Locations(Located, Inventory) Values('Brooklyn', 50); 
 
 --Insert Into Inventory(LID, PID, Quantity) Values(1, 1, 2);
 
@@ -104,7 +106,7 @@ CREATE TABLE Inventory
 
 --Select* From Customer; --3
 --Select* From Orders; 
---Select* From Product; --3
+--Select* From Product; --5
 --Select* From Customer_Order;
---Select* From Locations; --1
+--Select* From Locations; --2
 --Select* From Inventory; 

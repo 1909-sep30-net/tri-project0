@@ -44,7 +44,7 @@ namespace WatchStore
                 Console.WriteLine("[2] Recent customers");
                 Console.WriteLine("[3] Place an order");
                 Console.WriteLine("[4] Order history");
-                Console.WriteLine("[5] Check products");
+                Console.WriteLine("[5] Check products and locations");
                 Console.WriteLine("[6] Quit");
                 Console.WriteLine("");
 
@@ -85,7 +85,7 @@ namespace WatchStore
                         WatchStoreRepo.Save();
 
 
-                        Console.WriteLine("This is you: ");
+                        Console.WriteLine("You are now in the database, here you are: ");
                         //Might have to + 1 the ID to match the Database
                         cust.DisplayCust();
                         
@@ -119,12 +119,36 @@ namespace WatchStore
                         Console.WriteLine();
                         
                         string UserName = Console.ReadLine();
-                        WatchStoreRepo.FindCustomerName(UserName);
+                        //WatchStoreRepo.FindCustomerName(UserName);
+                        WatchStoreRepo.LookCustomer(UserName);
+                        Console.WriteLine();
 
                         break;
 
                     case "3":
-                        Console.WriteLine("Placing your order, please choose a customer: ");
+                        Console.WriteLine("Placing your order: ");
+                        Console.WriteLine("y or n ?");
+                        var OrderInput = Console.ReadLine();
+
+                        if(OrderInput == "y")
+                        {
+                            Console.WriteLine("We'll bring you back to the start menu so you can create yourself with option 1.");
+                            break;
+                        }
+                        else
+                        {
+                            bool inside = true;
+                            while (inside == true)
+                            {
+                                Console.WriteLine("Now, which one of our products would you like?");
+                                foreach (Product prod in OurProd)
+                                {
+                                    Console.WriteLine(prod.PID + " " + prod.Names + " " + prod.Model);
+                                }
+
+                            }
+                            break;
+                        }
 
                         break;
 
@@ -138,12 +162,20 @@ namespace WatchStore
                         break;
 
                     case "5":
-                        Console.WriteLine("Checking available products: ");
+                        Console.WriteLine("Hope you find something to your liking!");
+                        Console.WriteLine("Checking available products and locations: ");
                         Console.WriteLine();
                         var prod1 = WatchStoreRepo.GetAllProduct();
                         foreach (Product pro in prod1)
                         {
                             Console.WriteLine("Brand: " + pro.Names + " Model: " + pro.Model + " Price: " + pro.Price);
+                        }
+                        Console.WriteLine();
+                        
+                        var loc1 = WatchStoreRepo.GetAllLocation();
+                        foreach (Location lo in loc1)
+                        {
+                            Console.WriteLine("ID: " + lo.LID + " Location: " + lo.Locate + " Stock: " + lo.Inventory);
                         }
                         Console.WriteLine();
 

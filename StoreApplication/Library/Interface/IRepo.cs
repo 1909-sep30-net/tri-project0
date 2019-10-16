@@ -10,13 +10,17 @@ namespace Library.Interface
     {
         void AddCustomer(Customer customer);
 
-        Customer SearchCustomerName(Customer customers);
+        //void AddOrder(Order order);
 
-        public Customer FindCustomerName(string name);
+        public void LookCustomer(string name);
 
         public List<Customer> GetAllCustomer();
 
         public List<Product> GetAllProduct();
+
+        public List<Order> GetAllOrder();
+
+        public List<Location> GetAllLocation();
 
         void Save();
     }
