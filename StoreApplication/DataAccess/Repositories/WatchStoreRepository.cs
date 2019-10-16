@@ -12,6 +12,9 @@ namespace DataAccess.Repositories
 {
     public class WatchStoreRepository : IRepo, IDisposable
     {
+        public static Customer CurrentCustomer;
+        public static CustomerOrder CurrentCustomerOrder;
+
         private readonly WatchStoreContext MyDBContext;
 
         //Add logger later
@@ -27,6 +30,9 @@ namespace DataAccess.Repositories
                 Console.WriteLine("This is cannot be null.");
             }
 
+
+
+
         }
 
         public void AddCustomer(Library.Customer customer)
@@ -34,6 +40,22 @@ namespace DataAccess.Repositories
             Customer Entity = Map.MapCustomerWithEF(customer);
             MyDBContext.Add(Entity);
         }
+
+        public void AddCustomerOrder(Library.CustomerOrder customerOrder)
+        {
+            CustomerOrder Entity = Map.MapCustomerOrderWithEF(customerOrder);
+            MyDBContext.Add(Entity);
+        }
+
+        //Adding order
+        //Order is not initalized yet here.  May have to intialize it outside method or another method
+        //public void addorder(customer c, locations l, customerorder)
+        //{
+        //    customer 
+
+
+
+        //}
 
         public void LookCustomer(string name)
         {

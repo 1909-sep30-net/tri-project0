@@ -23,24 +23,24 @@ namespace Library
         public string OrderType { get; set; }
 
         //Current amount of product
-        List<Product> OrderProduct = new List<Product>();
+        List<CustomerOrder> OrderProduct = new List<CustomerOrder>();
 
 
 
         //additional business rules
 
         //add more product to current order
-        public void AddOrder(Product requested)
-        {
-            OrderProduct.Add(requested);
-        }
+        //public void AddOrder(Product requested)
+        //{
+        //    OrderProduct.Add(requested);
+        //}
 
 
-        //sub product from current order
-        public void SubOrder(Product requested)
-        {
-            OrderProduct.Remove(requested);
-        }
+        ////sub product from current order
+        //public void SubOrder(Product requested)
+        //{
+        //    OrderProduct.Remove(requested);
+        //}
 
         //displays your current order
         public void DisplayOrder()

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 //Added these usings
 using Library;
 using Library.Interface;
-using System.Linq;
+using System.Linq; 
 
 
 //UI
@@ -120,13 +120,21 @@ namespace WatchStore
                         
                         string UserName = Console.ReadLine();
                         //WatchStoreRepo.FindCustomerName(UserName);
-                        WatchStoreRepo.LookCustomer(UserName);
+                        try
+                        {
+                            WatchStoreRepo.LookCustomer(UserName);
+                        }
+                        catch(NullReferenceException e)
+                        {
+                            Console.WriteLine("No one by that name.");
+                        }
                         Console.WriteLine();
 
                         break;
 
                     case "3":
                         Console.WriteLine("Placing your order: ");
+                        Console.WriteLine("Are you a new customer?");
                         Console.WriteLine("y or n ?");
                         var OrderInput = Console.ReadLine();
 
@@ -137,16 +145,61 @@ namespace WatchStore
                         }
                         else
                         {
-                            bool inside = true;
-                            while (inside == true)
+                            var cust3 = WatchStoreRepo.GetAllCustomer();
+                            foreach (Customer custo in cust3)
                             {
-                                Console.WriteLine("Now, which one of our products would you like?");
-                                foreach (Product prod in OurProd)
+                                Console.WriteLine("ID: " + custo.ID + " Name: " + custo.Names + " Address: " + custo.Address + " Phone: " + custo.Phone);
+                            }
+
+
+                            Console.WriteLine();
+                            Console.WriteLine("Which customer are you regarding ID?");
+
+                            //Might have to delete customer table again
+                            string thecustomer = Console.ReadLine();
+                            int theinput = Int32.Parse(thecustomer) - 1;
+                            var customerChoice = cust3.ElementAt(theinput);
+
+                            Console.WriteLine("So this is you:" + customerChoice.ID + " " + customerChoice.Names + " " + customerChoice.Address + " " + customerChoice.Phone);
+
+                            //Customer data goes here
+                            Console.WriteLine();
+
+                            Console.WriteLine("Now, which one of our products would you like?");
+                            
+                            var prod2 = WatchStoreRepo.GetAllProduct();
+                                foreach (Product prod in prod2)
                                 {
-                                    Console.WriteLine(prod.PID + " " + prod.Names + " " + prod.Model);
+                                    Console.WriteLine("ID: " + prod.PID + " Brand: " + prod.Names + " Model: " + prod.Model + " Price: " + prod.Price );
                                 }
 
-                            }
+                                //Connect location/inventory
+                            
+                            Console.WriteLine("Select a product based on the product number.");
+                            string selectedID = Console.ReadLine();
+                            int yourResult = Int32.Parse(selectedID) - 1;
+
+                            var choice = prod2.ElementAt(yourResult);
+
+                            Console.WriteLine("Your choice: " + choice.Names + " " + choice.Model + " " + choice.Price);
+                            Console.WriteLine();
+
+                            Console.WriteLine("Catastic!  How many would you like to puuurchase?");
+                            string purchaseAmount = Console.ReadLine();
+                            int yourAmount = Int32.Parse(purchaseAmount);
+
+                            //Already have the product object: choice
+                            CustomerOrder COrdering = new CustomerOrder();
+                            Order order = new Order();
+
+                            COrdering.Amount = yourAmount;
+                            COrdering.OID = order.OID;
+                            COrdering.PID = choice.PID;
+
+
+
+
+                            
                             break;
                         }
 

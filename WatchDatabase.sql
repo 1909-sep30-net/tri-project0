@@ -89,12 +89,25 @@ CREATE TABLE Inventory
 
 --Insert Into Locations(Located, Inventory) Values('Geneva', 100); 
 --Insert Into Locations(Located, Inventory) Values('Brooklyn', 50); 
+--Insert Into Locations(Located, Inventory) Values('Anaheim', 150); 
 
 --Insert Into Inventory(LID, PID, Quantity) Values(1, 1, 2);
 
 --Insert Into Orders(OID, CID, LID, Order_Type, Order_Time) Values(1, 2, 1, 'Stainless steel', '2019-10-15');
 
 --Insert Into Customer_Order(OID, PID, Amount) Values(1, 1, 2);
+
+--Update Customer
+--Set Names = 'Rotty Tops', Addresses = 'Sequin Land', Phone = 8675309
+--Where CID = 3;
+
+--Update Customer
+--Set Names = 'Cloud Strife', Addresses = 'Midgar', Phone = 7776655
+--Where CID = 4;
+
+--Update Locations
+--Set Inventory = 300
+--Where Located = 'Geneva';
 
 --Select*
 --From Orders
