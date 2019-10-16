@@ -81,9 +81,12 @@ CREATE TABLE Inventory
 --Delete From Customer Where Customer.CID = 1;
 --Delete From Customer Where Customer.CID = 2;
 
---Insert Into Product(PID, Names, Price, Model) Values(1, 'Omega', 4500, 'Seamaster');
+--Insert Into Product(Names, Price, Model) Values('Omega', 4500, 'Seamaster');
+--Insert Into Product(Names, Price, Model) Values('Rolex', 5700, 'Datejust');
+--Insert Into Product(Names, Price, Model) Values('Grand Seiko', 5500, 'Snowflake');
+--Insert Into Product(Names, Price, Model) Values('IWC', 1200, 'Flieger');
 
---Insert Into Locations(LID, Located, Inventory) Values(1, 'Morrowind', 100); 
+--Insert Into Locations(Located, Inventory) Values('Geneva', 100); 
 
 --Insert Into Inventory(LID, PID, Quantity) Values(1, 1, 2);
 
@@ -99,9 +102,9 @@ CREATE TABLE Inventory
 --From Customer, Orders, Product
 --Where Customer.CID = Orders.CID; 
 
---Select* From Customer; --2
---Select* From Orders; --1
---Select* From Product; --1
+--Select* From Customer; --3
+--Select* From Orders; 
+--Select* From Product; --3
 --Select* From Customer_Order;
 --Select* From Locations; --1
---Select* From Inventory; --1
+--Select* From Inventory; 

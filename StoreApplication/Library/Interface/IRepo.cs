@@ -12,6 +12,12 @@ namespace Library.Interface
 
         Customer SearchCustomerName(Customer customers);
 
+        public Customer FindCustomerName(string name);
+
+        public List<Customer> GetAllCustomer();
+
+        public List<Product> GetAllProduct();
+
         void Save();
     }
 }

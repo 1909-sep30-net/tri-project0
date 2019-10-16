@@ -39,7 +39,7 @@ namespace WatchStore
             while (Running == true)
             {
                 //Might make 1 into add new customer and such
-                Console.WriteLine("Welcome! What would you like to do?");
+                Console.WriteLine("Welcome to my watch store! What would you like to do?");
                 Console.WriteLine("[1] Add a customer");
                 Console.WriteLine("[2] Recent customers");
                 Console.WriteLine("[3] Place an order");
@@ -60,6 +60,12 @@ namespace WatchStore
 
                         var name = Console.ReadLine();
 
+                        //if (name.Length < 1)
+                        //{
+                        //    Console.WriteLine("Name too short, type again.");
+                        //    name = Console.ReadLine();
+                        //}
+
                         Console.WriteLine("What is your address?");
 
                         var address = Console.ReadLine();
@@ -74,7 +80,6 @@ namespace WatchStore
                         cust.Names = name;
                         cust.Address = address;
                         cust.Phone = phone;
-                        //cust.ID = yourID;
 
                         WatchStoreRepo.AddCustomer(cust);
                         WatchStoreRepo.Save();
@@ -105,16 +110,16 @@ namespace WatchStore
                     case "2":
                         
 
-                        Console.WriteLine("The recent customers: ");
-                        //foreach (Library.Customer cus in OurCust)
-                        //{
-                        //    Console.WriteLine(cus.ID + " " + cus.Names + " " + cus.Address + " " + cus.Phone);
-                        //    Console.WriteLine("");
-                        //}
+                        Console.WriteLine("The recent customers: Type name to find");
+                        var cust1 = WatchStoreRepo.GetAllCustomer();
+                        foreach (Customer cu in cust1)
+                        {
+                            Console.WriteLine("ID: " + cu.ID + " Name: " + cu.Names + " Address: " + cu.Address + " Phone: " + cu.Phone);
+                        }
+                        Console.WriteLine();
                         
-                        //var customerInput = Console.ReadLine();
-                        //WatchStoreRepo.SearchCustomerName(customerInput);
-                        //Console.WriteLine("");
+                        string UserName = Console.ReadLine();
+                        WatchStoreRepo.FindCustomerName(UserName);
 
                         break;
 
@@ -134,10 +139,13 @@ namespace WatchStore
 
                     case "5":
                         Console.WriteLine("Checking available products: ");
-                        Console.WriteLine("Brand: Omega - Model: Seamaster");
-                        Console.WriteLine("Brand: Rolex - Model: Datejust");
-                        Console.WriteLine("Brand: Grand Seiko - Model: Snowflake");
-                        Console.WriteLine("Brand: IWC - Model: Flieger");
+                        Console.WriteLine();
+                        var prod1 = WatchStoreRepo.GetAllProduct();
+                        foreach (Product pro in prod1)
+                        {
+                            Console.WriteLine("Brand: " + pro.Names + " Model: " + pro.Model + " Price: " + pro.Price);
+                        }
+                        Console.WriteLine();
 
                         break;
 

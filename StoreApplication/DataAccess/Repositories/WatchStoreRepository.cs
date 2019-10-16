@@ -40,7 +40,23 @@ namespace DataAccess.Repositories
             return Map.MapEFWithCustomer(MyDBContext.Customer.Find(customer));
         }
 
+        public Library.Customer FindCustomerName(string name)
+        {
+            return MyDBContext.Customer.Select(Map.MapEFWithCustomer).Where(cust => cust.Names == name).FirstOrDefault();
+        }
 
+        //Gets all customer from entity convert to library data then put to list
+        public List<Library.Customer> GetAllCustomer()
+        {
+            IQueryable<Entities.Customer> cust = MyDBContext.Customer.AsNoTracking();
+            return cust.Select(Map.MapEFWithCustomer).ToList();
+        }
+
+        public List<Library.Product> GetAllProduct()
+        {
+            IQueryable<Entities.Product> prod = MyDBContext.Product.AsNoTracking();
+            return prod.Select(Map.MapEFWithProduct).ToList();
+        }
 
         public void Save()
         {
